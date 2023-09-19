@@ -1,0 +1,48 @@
+#include <iostream>
+#include <cctype> // Necesario para la función std::tolower
+
+int main() {
+    char primerLetraApellido;
+
+    // Solicitar al usuario la primera letra del apellido paterno
+    std::cout << "Ingresa la primera letra de tu Apellido Paterno: ";
+    std::cin >> primerLetraApellido;
+
+    // Convertir la letra ingresada a minúscula para hacer la comparación
+    primerLetraApellido = std::tolower(primerLetraApellido);
+
+    // Verificar la letra ingresada y realizar la acción correspondiente
+    if (primerLetraApellido >= 'f' && primerLetraApellido <= 'z') {
+        // Invertir un número
+        int numero = 45671;
+        int numeroInvertido = 0;
+//se ejecuta este bucle mientars el numerto sea mayor a 0
+        while (numero > 0) {
+//cada iteracion del bucle toma el ultimo digito
+//Luego, se multiplica numeroInvertidopor 10 para 
+//hacer espacio para el próximo dígito y se suma el dígito obtenido. Esto es lo que permite invertir el número.
+//Después de la primera iteración, numeroInvertidose convierte en 1.
+            numeroInvertido = numeroInvertido * 10 + numero % 10;
+//numero /= 10;: Después de obtener el último dígito y agregarlo a numeroInvertido, 
+//se elimina ese último dígito de numerodividiéndolo por 10
+            numero /= 10;
+        }
+
+        std::cout << "Número invertido: " << numeroInvertido << std::endl;
+    } else if (primerLetraApellido >= 'a' && primerLetraApellido <= 'e') {
+        // Mostrar las cifras de un número
+        int numero = 45671;
+        int cifra, posicion = 1;
+
+        while (numero > 0) {
+            cifra = numero % 10;
+            std::cout << "Número " << posicion << ": " << cifra << std::endl;
+            numero /= 10;
+            posicion++;
+        }
+    } else {
+        std::cout << "La letra ingresada no está en el rango válido (a - z o A - Z)." << std::endl;
+    }
+
+    return 0;
+}
